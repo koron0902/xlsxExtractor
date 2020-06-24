@@ -2,8 +2,8 @@
 xlsxファイルの各シートをCSVファイルとして出力するためのPowerShell Scriptです。
 
 # Dependency
-Microsoft Excel
-PowerShell ISE
+- Microsoft Excel
+- PowerShell ISE
 
 # How to
 ```
