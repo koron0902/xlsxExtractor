@@ -36,7 +36,7 @@ $prefix = Join-Path $parent $filename
 for($i = 0;$i -lt $excel.Worksheets.Count; $i++){
     $sheet = $excel.Worksheets.Item($($i+1))
     $sheet.SaveAs($($prefix + $sheet.Name + ".csv"), [Microsoft.Office.Interop.Excel.XlFileFormat]::xlCSV)
-	[System.Runtime.Interopservices.Marshal]::ReleaseComObject($sheet)
+	[void][System.Runtime.Interopservices.Marshal]::FinalReleaseComObject($sheet)
 }
 
 # quit excel server
@@ -45,5 +45,5 @@ $excel.Quit()
 
 
 # release object to safe
-[System.Runtime.Interopservices.Marshal]::ReleaseComObject($excel)
-[System.GC]::Collect()
+[void][System.Runtime.Interopservices.Marshal]::FinalReleaseComObject($excel)
+[void][System.GC]::Collect()
